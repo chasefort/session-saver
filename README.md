@@ -1,5 +1,9 @@
 # Session Saver
 
+<div align="center">
+  <img src="banner/banner.gif" alt="Session Saver — >_S retro terminal banner" width="100%">
+</div>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Markdown only](https://img.shields.io/badge/install-none-brightgreen)](SESSION_SAVER.md)
 [![Works with Claude Code](https://img.shields.io/badge/Claude%20Code-✓-blue)](https://claude.ai/code)
@@ -23,9 +27,11 @@ leaves you with a half-finished mess and a wasted session.
 The real frustration isn't _"I don't know how many tokens I have left."_ It's:
 
 > I don't know whether this task is safe to start right now.
+> And when it fails, I have to manually pick up the pieces.
 
 Most usage tools answer **"how much have I used?"** Session Saver answers
-**"should I start this task, split it, or save state first?"**
+**"should I start this task, split it, or save state first?"** — and if the
+session ends anyway, **auto-continues it for you.**
 
 ---
 
@@ -42,6 +48,10 @@ Before risky work, the agent classifies the task into a risk level:
 
 For anything past GREEN, the agent surfaces a short check — why it's risky, a
 recommended approach, and a copy-pasteable next prompt — instead of charging in.
+
+**During execution**, it also monitors session health. When it detects compaction,
+ballooning scope, or heavy context burn, it writes a checkpoint and signals
+auto-continuation — so the work picks up automatically in the next session.
 
 ---
 
@@ -61,6 +71,10 @@ recommended approach, and a copy-pasteable next prompt — instead of charging i
 
 That's it. The file is short by design — agents read it on every startup without
 burning meaningful context.
+
+**3. (Optional) Enable auto-continuation** — follow [`AUTO_CONTINUE.md`](AUTO_CONTINUE.md)
+to add a Stop hook so Claude Code resumes automatically after context limits or
+rate-limit pauses. Takes ~2 minutes to configure.
 
 ---
 
@@ -116,6 +130,7 @@ You get an immediate, safe next action instead of a blown session.
 | File | Purpose |
 |------|---------|
 | [`SESSION_SAVER.md`](SESSION_SAVER.md) | The runtime skill — copy this into your project |
+| [`AUTO_CONTINUE.md`](AUTO_CONTINUE.md) | Auto-restart after context limits or rate limits |
 | [`HANDOFF_TEMPLATE.md`](HANDOFF_TEMPLATE.md) | Preserve state before a reset or tool switch |
 | [`TASK_SLICE_TEMPLATE.md`](TASK_SLICE_TEMPLATE.md) | Break a big task into finishable slices |
 | [`examples/`](examples/) | One worked example per risk level |

@@ -6,3 +6,11 @@ AGENTS.md
 # OS noise
 .DS_Store
 Thumbs.db
+
+# Banner build artifacts (keep banner.gif — it's the committed asset)
+banner/node_modules/
+banner/package.json
+banner/package-lock.json
+banner/banner.mp4
+banner/renders/
+banner/.claude/
