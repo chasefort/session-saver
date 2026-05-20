@@ -114,6 +114,24 @@ The Resume Prompt must let the user continue in a fresh session by pasting it in
 
 ---
 
+## Mid-session monitoring
+
+During execution, checkpoint and flag for continuation when you observe:
+
+- Compaction occurred at any point in this session
+- Scope grew: a YELLOW task became RED territory mid-execution
+- You've done many large file reads or verbose terminal runs
+- A subtask failed and required retrying — context spend was high
+- You're on slice 2+ of a RED task and the session is already loaded
+
+When triggered:
+1. Write `.session-continue` to the project root (one empty file).
+2. Update or create `HANDOFF.md` with current state (use HANDOFF_TEMPLATE.md).
+3. Tell the user: "Session health is low. Checkpoint saved. See AUTO_CONTINUE.md
+   to resume automatically if this session ends."
+
+---
+
 ## Guiding question
 
 > Can this task finish cleanly in the current session?
