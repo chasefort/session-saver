@@ -1,0 +1,8 @@
+# Agent/IDE instructions — not for public consumption
+CLAUDE.md
+AGENTS.md
+.claude/
+
+# OS noise
+.DS_Store
+Thumbs.db
